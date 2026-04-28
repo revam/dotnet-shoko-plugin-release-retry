@@ -1,7 +1,6 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using Shoko.Abstractions.Plugin;
-using Shoko.Abstractions.Utilities;
 
 namespace Shoko.Plugin.ReleaseRetry;
 
