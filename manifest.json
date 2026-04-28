@@ -5,7 +5,29 @@
   "authors": "revam",
   "repository_url": "https://github.com/revam/dotnet-shoko-plugin-release-retry",
   "homepage_url": null,
-  "tags": ["release", "retry", "search", "auto-match"],
+  "tags": [
+    "release",
+    "retry",
+    "search",
+    "auto-match"
+  ],
   "thumbnail": null,
-  "releases": []
+  "releases": [
+    {
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "source_revision": "40d7a65de4f8a4973d29c0e3cee4017f3417e882",
+      "released_at": "2026-04-28T17:02:39Z",
+      "channel": "Stable",
+      "release_notes": null,
+      "archives": [
+        {
+          "runtime": "any",
+          "abstraction": "6.0.0",
+          "url": "https://github.com/revam/dotnet-shoko-plugin-release-retry/releases/download/v1.0.0/Shoko.Plugin.ReleaseRetry-v1.0.0-any.zip",
+          "checksum": "e846cccf749c7b3022e5c918e2ed2ed2fad4bd49d2c39bc7ffef52a6fed68ea1"
+        }
+      ]
+    }
+  ]
 }
