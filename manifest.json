@@ -1,0 +1,12 @@
+{
+  "id": "b81acd7e-6641-47e7-a383-0a8b4304408e",
+  "name": "Release Retry",
+  "overview": "Re-attempts release searches after a configurable delay if the first auto-match attempt fails.",
+  "authors": "revam",
+  "repository_url": "https://github.com/revam/dotnet-shoko-plugin-release-retry",
+  "homepage_url": null,
+  "tags": ["release", "retry", "search", "auto-match"],
+  "thumbnail": null,
+  "releases": [],
+  "last_fetched_at": "2026-04-28T00:00:00Z"
+}
