@@ -74,7 +74,6 @@ jobs:
 
           jq --argjson release "$RELEASE_ENTRY" '
             .releases |= [ $release ] + . |
-            .last_fetched_at = now |
             .releases |= unique_by(.version)
           ' manifest.json > manifest.json.tmp && mv manifest.json.tmp manifest.json
 
