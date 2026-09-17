@@ -16,7 +16,7 @@ A [Shoko](https://shokoanime.com/) plugin that re-attempts automatic release sea
 1. Open the Shoko Web UI and navigate to **Settings → Plugins → Repositories**.
 2. Add the manifest URL:
    ```
-   https://raw.githubusercontent.com/revam/dotnet-shoko-plugin-release-retry/stable/manifest.json
+   https://raw.githubusercontent.com/revam/dotnet-shoko-plugin-release-retry/metadata/manifest.json
    ```
 3. Go to **Settings → Plugins → Browse** and find **Release Retry**.
 4. Click **Install** on the desired version.
