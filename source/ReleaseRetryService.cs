@@ -94,7 +94,7 @@ public class ReleaseRetryService : IHostedService
             return;
 
         // Cancel any existing pending retry for this video before scheduling a new one.
-        if (_pendingRetries.TryRemove(video.ID, out var existingCts))
+        if (_pendingRetries.TryRemove(video.LocalID, out var existingCts))
         {
             try
             {
@@ -108,7 +108,7 @@ public class ReleaseRetryService : IHostedService
         }
 
         var cts = new CancellationTokenSource();
-        if (!_pendingRetries.TryAdd(video.ID, cts))
+        if (!_pendingRetries.TryAdd(video.LocalID, cts))
         {
             cts.Dispose();
             return;
@@ -117,7 +117,7 @@ public class ReleaseRetryService : IHostedService
         _logger.LogInformation(
             "Scheduling retry #{RetryNumber} for video {VideoID} in {Delay} because the auto-match attempt failed.",
             attempts.Count,
-            video.ID,
+            video.LocalID,
             config.RetryDelay
         );
 
@@ -126,10 +126,10 @@ public class ReleaseRetryService : IHostedService
 
     private void OnVideoFileDeleted(object? sender, VideoFileEventArgs eventArgs)
     {
-        if (_videoService.GetVideoByID(eventArgs.Video.ID) is not null)
+        if (_videoService.GetVideoByID(eventArgs.Video.LocalID) is not null)
             return;
 
-        if (_pendingRetries.TryRemove(eventArgs.Video.ID, out var cts))
+        if (_pendingRetries.TryRemove(eventArgs.Video.LocalID, out var cts))
         {
             try
             {
@@ -141,7 +141,7 @@ public class ReleaseRetryService : IHostedService
                 // Ignore.
             }
 
-            _logger.LogDebug("Cancelled pending retry for video {VideoID} because the video was deleted.", eventArgs.Video.ID);
+            _logger.LogDebug("Cancelled pending retry for video {VideoID} because the video was deleted.", eventArgs.Video.LocalID);
         }
     }
 
@@ -159,23 +159,23 @@ public class ReleaseRetryService : IHostedService
         if (cancellationToken.IsCancellationRequested)
             return;
 
-        _pendingRetries.TryRemove(video.ID, out _);
+        _pendingRetries.TryRemove(video.LocalID, out _);
 
-        var currentVideo = _videoService.GetVideoByID(video.ID);
+        var currentVideo = _videoService.GetVideoByID(video.LocalID);
         if (currentVideo is null)
         {
-            _logger.LogDebug("Skipping retry for video {VideoID} because it no longer exists.", video.ID);
+            _logger.LogDebug("Skipping retry for video {VideoID} because it no longer exists.", video.LocalID);
             return;
         }
 
         var release = _videoReleaseService.GetCurrentReleaseForVideo(currentVideo);
         if (release is not null)
         {
-            _logger.LogDebug("Skipping retry for video {VideoID} because it already has a release.", video.ID);
+            _logger.LogDebug("Skipping retry for video {VideoID} because it already has a release.", video.LocalID);
             return;
         }
 
-        _logger.LogInformation("Retrying release search for video {VideoID}.", video.ID);
+        _logger.LogInformation("Retrying release search for video {VideoID}.", video.LocalID);
         await _videoReleaseService.ScheduleFindReleaseForVideo(currentVideo, force: true, prioritize: prioritize).ConfigureAwait(false);
     }
 }
