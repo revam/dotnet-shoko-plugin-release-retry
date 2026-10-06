@@ -14,6 +14,22 @@
   ],
   "releases": [
     {
+      "version": "1.0.4",
+      "tag": "v1.0.4",
+      "released_at": "2026-10-06T21:39:57.0318807Z",
+      "channel": "Stable",
+      "release_notes": "Rebuilt against the abstractions \u00606.0.0-alpha.99\u0060 release.\n\nRequires Shoko Server with abstractions \u00606.0.0-alpha.99\u0060.",
+      "dependencies": [],
+      "archives": [
+        {
+          "runtime": "any",
+          "abstraction": "6.0.0",
+          "url": "https://github.com/revam/dotnet-shoko-plugin-release-retry/releases/download/v1.0.4/ReleaseRetry-v1.0.4-any.zip",
+          "checksum": "sha256:7c834a610f8bab5399d67fae56009f92ea412ae62a57c9beb04347ec8b8c6f53"
+        }
+      ]
+    },
+    {
       "version": "1.0.3",
       "tag": "v1.0.3",
       "released_at": "2026-10-03T16:54:11.0914107Z",
