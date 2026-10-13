@@ -22,6 +22,12 @@ public class Plugin : IPlugin, IPluginServiceRegistration
     """;
 
     /// <inheritdoc/>
+    public string? EmbeddedThumbnailResourceName => "Shoko.Plugin.ReleaseRetry.Assets.thumbnail.svg";
+
+    /// <inheritdoc/>
+    public string? EmbeddedIconResourceName => "Shoko.Plugin.ReleaseRetry.Assets.icon.svg";
+
+    /// <inheritdoc/>
     public static void RegisterServices(IServiceCollection serviceCollection, IApplicationPaths applicationPaths)
     {
         serviceCollection.AddSingleton<ReleaseRetryService>();

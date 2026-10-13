@@ -15,6 +15,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <!-- The plugin's thumbnail and icon, read by the server through the plugin. -->
+        <EmbeddedResource Include="Assets\thumbnail.svg" LogicalName="Shoko.Plugin.ReleaseRetry.Assets.thumbnail.svg" />
+        <EmbeddedResource Include="Assets\icon.svg" LogicalName="Shoko.Plugin.ReleaseRetry.Assets.icon.svg" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Shoko.Abstractions" Version="6.0.0-alpha.104" ExcludeAssets="runtime" />
     </ItemGroup>
 
