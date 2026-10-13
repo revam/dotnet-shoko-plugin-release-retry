@@ -12,6 +12,8 @@
     "search",
     "auto-match"
   ],
+  "thumbnail_url": "https://raw.githubusercontent.com/revam/dotnet-shoko-plugin-release-retry/stable/source/Assets/thumbnail.svg",
+  "icon_url": "https://raw.githubusercontent.com/revam/dotnet-shoko-plugin-release-retry/stable/source/Assets/icon.svg",
   "releases": [
     {
       "version": "1.0.5",
