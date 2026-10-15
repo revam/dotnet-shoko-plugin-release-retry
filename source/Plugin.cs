@@ -8,7 +8,7 @@ namespace Shoko.Plugin.ReleaseRetry;
 /// Plugin responsible for re-attempting release searches after a configurable
 /// delay if the first auto-match attempt fails.
 /// </summary>
-public class Plugin : IPlugin, IPluginServiceRegistration
+public class Plugin : IPlugin<Configuration>, IPluginServiceRegistration
 {
     /// <inheritdoc/>
     public Guid ID { get; private init; } = new("b81acd7e-6641-47e7-a383-0a8b4304408e");

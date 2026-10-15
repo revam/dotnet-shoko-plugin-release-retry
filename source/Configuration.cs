@@ -9,7 +9,7 @@ namespace Shoko.Plugin.ReleaseRetry;
 /// Configure the release retry behavior.
 /// </summary>
 [Display(Name = "Release Retry")]
-public class Configuration : INewtonsoftJsonConfiguration
+public class Configuration : INewtonsoftJsonConfiguration, IPluginConfiguration
 {
     /// <summary>
     /// The delay before retrying a failed release search.
